@@ -31,11 +31,11 @@ jobs:
         run: |
           cd frontend
           flutter pub get
-          flutter build web --base-href /autogpt/
+          flutter build web --base-href /AutoGPT/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: ./frontend/build
+          path: ./frontend/build/web
   deploy:
     environment:
       name: github-pages
