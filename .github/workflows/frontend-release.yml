@@ -30,7 +30,6 @@ jobs:
           DRY_RUN: true
           RELEASE_BRANCHES: master
           SOURCE: frontend
-          INITIAL_VERSION: 1.0.0
         
       
       - name: Bump version and push tag
@@ -42,6 +41,5 @@ jobs:
           CUSTOM_TAG: "frontend-${{ steps.versioning-dry-run.outputs.new_tag }}"
           RELEASE_BRANCHES: master
           SOURCE: frontend
-          INITIAL_VERSION: 1.0.0
         
 
