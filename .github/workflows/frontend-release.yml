@@ -3,7 +3,7 @@ name: Frontend release
 on:
   push:
     tags:
-      - "frontend-v*.*.*"
+      - "frontend-v*"
 
 jobs:
   build:
