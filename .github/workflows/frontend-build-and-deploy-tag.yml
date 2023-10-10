@@ -2,7 +2,7 @@ name: Frontend deploy
 
 on:
   release:
-      types: [published]
+    types: [published]
 
 concurrency:
   group: "pages"

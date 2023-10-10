@@ -3,7 +3,7 @@ name: Frontend release
 on:
   push:
     paths:
-      - "frontend"
+      - "frontend/**"
     branches:
       - master
 
