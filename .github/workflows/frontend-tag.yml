@@ -1,0 +1,29 @@
+name: Frontend tag
+
+on:
+  push:
+    paths:
+      - "frontend/**"
+    branches:
+      - master
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  tag:
+    name: Tag
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: "Version"
+        uses: paulhatch/semantic-version@v5.3.0
+        with:
+          tag_prefix: "frontend-v"
+          change_path: "frontend"
