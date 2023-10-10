@@ -1,0 +1,34 @@
+name: Frontend release
+
+on:
+  push:
+    tags:
+      - "frontend-v[0-9]+.[0-9]+.[0-9]+"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.13.2'
+          channel: 'stable'
+
+      - name: Build
+        run: |
+          cd frontend
+          flutter pub get
+          flutter build web --base-href /app/
+
+      - name: Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "frontend/build/web"
+          generateReleaseNotes: true
