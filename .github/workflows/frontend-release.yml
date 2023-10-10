@@ -1,0 +1,43 @@
+name: Frontend release
+
+on:
+    push:
+        paths:
+            - "frontend"
+        branches:
+            - master
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+    release:
+        name: Release
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+        steps:
+            - name: Dry run get next tag
+              id: versioning-dry-run
+              uses: anothrNick/github-tag-action@1.64.0
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                WITH_V: true
+                DRY_RUN: true
+                RELEASE_BRANCHES: master
+                SOURCE: frontend
+                INITIAL_VERSION: 1.0.0
+            
+            
+            - name: Bump version and push tag
+              id: versioning
+              uses: anothrNick/github-tag-action@1.64.0
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                WITH_V: true
+                CUSTOM_TAG: "frontend-${{ steps.versioning-dry-run.outputs.new_tag }}"
+                RELEASE_BRANCHES: master
+                SOURCE: frontend
+                INITIAL_VERSION: 1.0.0
+            
+
