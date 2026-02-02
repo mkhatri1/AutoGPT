@@ -54,7 +54,7 @@ Before proceeding with the installation, ensure your system meets the following 
 ### Updated Setup Instructions:
 We've moved to a fully maintained and regularly updated documentation site.
 
-👉 [Follow the official self-hosting guide here](https://docs.agpt.co/platform/getting-started/)
+👉 [Follow the official self-hosting guide here](https://agpt.co/docs/platform/getting-started/getting-started)
 
 
 This tutorial assumes you have Docker, VSCode, git and npm installed.
@@ -93,7 +93,7 @@ The AutoGPT frontend is where users interact with our powerful AI automation pla
 
    **Monitoring and Analytics:** Keep track of your agents' performance and gain insights to continually improve your automation processes.
 
-[Read this guide](https://docs.agpt.co/platform/new_blocks/) to learn how to build your own custom blocks.
+[Read this guide](https://docs.agpt.co/platform/building-blocks/new_blocks/) to learn how to build your own custom blocks.
 
 ### 💽 AutoGPT Server
 
